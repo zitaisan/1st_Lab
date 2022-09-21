@@ -1,0 +1,53 @@
+using System;
+using System.Net.NetworkInformation;
+
+class MyClass
+{
+    static double distance(int n)
+    {
+        if (n == 1) return 10;
+        else return distance(n - 1) * 1.1;
+    }
+    static void Main()
+    {
+        #region Level2task2
+        int p = 1;
+        int n = 4;
+        do
+        {
+            p = p * n;
+            n = n + 3;
+        } while (p * n <= 30000);
+        Console.WriteLine($"result1 -> {p}");
+        #endregion
+        #region Level2task4
+        Console.WriteLine("введите значение |x|<1");
+        double x = Convert.ToDouble(Console.ReadLine());
+        double x1 = 0.0;
+        double res2 = 1.0;
+        int n2 = 2;
+        do
+        {
+            x1 = Math.Pow(x, n2);
+            res2 = res2 + x1;
+            n2 = 2 * n2;
+        } while (Math.Pow(x,n2) >= 0.0001);
+        Console.WriteLine($"result sum(funct) -> {res2}");
+        #endregion
+        #region Level2tasks7-8
+        double days7 = distance(7);
+        Console.WriteLine($"a) 7 days -> {days7}");
+        int n1 = 1;
+        do {n1 = n1 + 1;} while (distance(n1) < 100);
+        Console.WriteLine($"summary way 100km -> {n1}");
+        double raz = 0.0;
+        int n4 = 2;
+        do
+        {
+            raz = distance(n4) - distance(n4 - 1);
+            n4 = n4 + 1;
+        } while (raz < 20);
+        Console.WriteLine($"summary 20 days > {n4}");
+        #endregion
+    }
+}
